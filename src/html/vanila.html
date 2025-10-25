@@ -1,0 +1,1022 @@
+<!doctype html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+  <title>Vanila</title>
+  @@include('global/styles.html')
+</head>
+
+<body>
+  @@include('global/header.html')
+
+  <main>
+     <script>
+        jQuery(document).ready(function($) {
+          function num_word(value, words){  
+            value = Math.abs(value) % 100; 
+            var num = value % 10;
+            if(value > 10 && value < 20) return words[2]; 
+            if(num > 1 && num < 5) return words[1];
+            if(num == 1) return words[0]; 
+            return words[2];
+          }
+
+          function timer() {
+            var currentDate = new Date();
+            var secondsLeft = Math.floor((endDate - currentDate) / 1000);
+            var days = Math.floor(secondsLeft / (24 * 60 * 60));
+            var hours = Math.floor((secondsLeft % (24 * 60 * 60)) / (60 * 60));
+            var minutes = Math.floor((secondsLeft % (60 * 60)) / 60);
+
+            
+            $(".vanila-timer .days-text").text(num_word(days, ['день', 'дня', 'дней']));
+            $(".vanila-timer .hours-text").text(num_word(hours, ['час', 'часа', 'часов']));
+            $(".vanila-timer .minutes-text").text(num_word(minutes, ['минута', 'минуты', 'минут']));
+
+            if(days < 10) {
+              days = "0" + days;
+            }
+
+            if(hours < 10) {
+              hours = "0" + hours;
+            }
+
+            if(minutes < 10) {
+              minutes = "0" + minutes;
+            }
+
+            $(".vanila-timer .days").text(days);
+            $(".vanila-timer .hours").text(hours);
+            $(".vanila-timer .minutes").text(minutes);
+          }
+
+          var endDate = new Date(2026, 1, 22);
+          timer();
+          setInterval(timer(), 1000);
+        });
+    </script>
+
+    <!-- hero -->
+    <section class="hero vanila">
+      <img src="assets/img/roadmap-bg.webp" alt="" class="roadmap-bg">
+      <picture class="vanila-bg">
+        <img src="assets/img/vanila.webp" alt="baza">
+      </picture>
+      <div class="container">
+        <div class="vanila__wrap">
+          <img src="assets/img/vanila.svg" alt="" class="vanila__title">
+          <p class="vanila__desc">
+            “Наш ремейк вернёт тебя в прошлое, туда, где всё начиналось. В экспресс режиме мы прокатим тебя через лучшие обновления Эссенса до актуала”
+          </p>
+          <div class="vanila__date">
+            <p class="vanila__date-open">
+              <span>Открытие сервера</span> — 7 октября 2025
+            </p>
+            <div class="vanila-timer">
+              <div class="vanila-timer__item">
+                <p class="vanila-timer__text days-text"></p>
+                <p class="vanila-timer__number days"></p>
+              </div>
+              <div class="vanila-timer__item">
+                <p class="vanila-timer__text hours-text"></p>
+                <p class="vanila-timer__number hours"></p>
+              </div>
+              <div class="vanila-timer__item">
+                <p class="vanila-timer__text minutes-text"></p>
+                <p class="vanila-timer__number minutes"></p>
+              </div>
+            </div>
+          </div>
+          <div class="vanila__btns">
+            <a href="#" class="vanila-btn"><span>Регистрация</span></a>
+            <a href="#" class="vanila-btn2"><span>Скачать файлы</span></a>
+          </div>
+        </div>
+        <div class="stories">
+          <p class="stories-title">stories</p>
+          <div class="stories-item"><img src="assets/img/story1.png" alt="story"></div>
+          <div class="stories-item"><img src="assets/img/story2.png" alt="story"></div>
+          <div class="stories-item"><img src="assets/img/story3.png" alt="story"></div>
+          <div class="stories-item"><img src="assets/img/story4.png" alt="story"></div>
+          <div class="stories-item"><img src="assets/img/story2.png" alt="story"></div>
+        </div>
+      </div>
+      <div class="gift">
+        <!-- <img src="assets/img/gift.png" alt="gift"> -->
+        <video class="gift-img" autoplay loop muted playsinline>
+            <source src="assets/img/gift2.webm" type="video/mp4">
+        </video>
+        <p class="body-14mp">Осталось 300 из 1000 стартовых подарков</p>
+        <div class="gift-line"></div>
+        <a href="#" class="gift-btn body-14mu">Получить</a>
+      </div>
+    </section>
+
+    <div style="display: none;">
+        <div class="box-modal stories-modal" id="storiesModal">
+            <div class="stories-modal-wrap">
+                <div class="arcticmodal-close stories-modal-close">
+                    <img src="assets/img/close.svg" alt="svg" class="svg">
+                    <span class="body-14mu">закрыть</span>
+                </div>
+                <div class="swiper stories-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide stories-swiper-slide">
+                            <video preload="none" loop playsinline>
+                                <source src="assets/img/story1-big.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="swiper-slide stories-swiper-slide">
+                            <video preload="none" loop playsinline>
+                              <source src="assets/img/story2-big.mp4" type="video/mp4">
+                            </video>
+                            <a href="#" class="secondary-btn body-14mu">Подробнее</a>
+                        </div>
+                        <div class="swiper-slide stories-swiper-slide">
+                            <img loading="lazy" src="assets/img/story3-big.webp" alt="">
+                            <a href="https://discord.gg/baza" class="secondary-btn body-14mu">Подробнее</a>
+                        </div>
+                        <div class="swiper-slide stories-swiper-slide">
+                            <img loading="lazy" src="assets/img/story4-big.webp" alt="">
+                            <a href="https://t.me/bazaproject_bot" class="secondary-btn body-14mu">Подробнее</a>                              
+                        </div>
+                        <div class="swiper-slide stories-swiper-slide">
+                            <video preload="none" loop playsinline>
+                              <source src="assets/img/story2-big.mp4" type="video/mp4">
+                            </video>
+                            <a href="#" class="secondary-btn body-14mu">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+            <div class="modal-overlay arcticmodal-close"></div>
+        </div>
+    </div>
+
+    <section class="roadmap">
+      <p class="roadmap__title">Дорожная карта</p>
+      <div class="roadmap__wrap">
+        <div class="roadmap__images swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide roadmap__image">
+              <img src="assets/img/roadmap.webp" alt="">
+            </div>
+            <div class="swiper-slide roadmap__image">
+              <img src="assets/img/roadmap2.webp" alt="">
+            </div>
+            <div class="swiper-slide roadmap__image">
+              <img src="assets/img/roadmap.webp" alt="">
+            </div>
+            <div class="swiper-slide roadmap__image">
+              <img src="assets/img/roadmap2.webp" alt="">
+            </div>
+            <div class="swiper-slide roadmap__image">
+              <img src="assets/img/roadmap.webp" alt="">
+            </div>
+            <div class="swiper-slide roadmap__image">
+              <img src="assets/img/roadmap2.webp" alt="">
+            </div>
+            <div class="swiper-slide roadmap__image">
+              <img src="assets/img/roadmap.webp" alt="">
+            </div>
+            <div class="swiper-slide roadmap__image">
+              <img src="assets/img/roadmap2.webp" alt="">
+            </div>
+            <div class="swiper-slide roadmap__image">
+              <img src="assets/img/roadmap.webp" alt="">
+            </div>
+            <div class="swiper-slide roadmap__image">
+              <img src="assets/img/roadmap2.webp" alt="">
+            </div>
+            <div class="swiper-slide roadmap__image">
+              <img src="assets/img/roadmap.webp" alt="">
+            </div>
+            <div class="swiper-slide roadmap__image">
+              <img src="assets/img/roadmap2.webp" alt="">
+            </div>
+            <div class="swiper-slide roadmap__image">
+              <img src="assets/img/roadmap.webp" alt="">
+            </div>
+            <div class="swiper-slide roadmap__image">
+              <img src="assets/img/roadmap2.webp" alt="">
+            </div>
+            <div class="swiper-slide roadmap__image">
+              <img src="assets/img/roadmap.webp" alt="">
+            </div>
+            <div class="swiper-slide roadmap__image">
+              <img src="assets/img/roadmap2.webp" alt="">
+            </div>
+            <div class="swiper-slide roadmap__image">
+              <img src="assets/img/roadmap.webp" alt="">
+            </div>
+            <div class="swiper-slide roadmap__image">
+              <img src="assets/img/roadmap2.webp" alt="">
+            </div>
+            <div class="swiper-slide roadmap__image">
+              <img src="assets/img/roadmap.webp" alt="">
+            </div>
+            <div class="swiper-slide roadmap__image">
+              <img src="assets/img/roadmap2.webp" alt="">
+            </div>
+            <div class="swiper-slide roadmap__image">
+              <img src="assets/img/roadmap.webp" alt="">
+            </div>
+            <div class="swiper-slide roadmap__image">
+              <img src="assets/img/roadmap2.webp" alt="">
+            </div>
+            <div class="swiper-slide roadmap__image">
+              <img src="assets/img/roadmap.webp" alt="">
+            </div>
+            <div class="swiper-slide roadmap__image">
+              <img src="assets/img/roadmap2.webp" alt="">
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+        <div class="roadmap__content swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide roadmap-slide">
+              <span class="roadmap-slide__number">00_1</span>
+              <p class="roadmap-slide__title"><span>( </span> Release <span> )</span></p>
+              <div class="roadmap-slide__date">
+                <div class="roadmap-slide__date-before">Q1 2019 — Q2 2019</div>
+                <div class="roadmap-slide__date-after">От 2 до 4 недель</div>
+              </div>
+              <p class="roadmap-slide__desc">
+                Патч Sylph  открывает дверь в прекрасный мир воздушных духов природы — элегантных и смертельно опасных существ. Класс обладает  стремительностью движений, ловкостью и способностью наносить молниеносные атаки по одной цели.
+              </p>
+              <p class="roadmap-slide__end">
+                <p class="roadmap-slide__subtitle">Доступные расы</p>
+                <p class="roadmap-slide__desc">
+                  Люди, Светлые Эльфы, Тёмные Эльфы, Гномы, Орки
+                </p>
+                <div class="roadmap-slide__btns">
+                  <a href="#" class="roadmap-btn">
+                    <img src="assets/img/roadmap-info.svg" class="svg" alt="">
+                    Доступные предметы
+                  </a>
+                  <a href="#" class="roadmap-btn">
+                    <img src="assets/img/roadmap-info.svg" class="svg" alt="">
+                    Release Enhance
+                  </a>
+                </div>
+              </p>
+            </div>
+            <div class="swiper-slide roadmap-slide">
+              <span class="roadmap-slide__number">00_2</span>
+              <p class="roadmap-slide__title"><span>( </span> Release <span> )</span></p>
+              <div class="roadmap-slide__date">
+                <div class="roadmap-slide__date-before">Q1 2019 — Q2 2019</div>
+                <div class="roadmap-slide__date-after">От 2 до 4 недель</div>
+              </div>
+              <p class="roadmap-slide__desc">
+                Патч Sylph  открывает дверь в прекрасный мир воздушных духов природы — элегантных и смертельно опасных существ. Класс обладает  стремительностью движений, ловкостью и способностью наносить молниеносные атаки по одной цели.
+              </p>
+              <p class="roadmap-slide__end">
+                <p class="roadmap-slide__subtitle">Доступные расы</p>
+                <p class="roadmap-slide__desc">
+                  Люди, Светлые Эльфы, Тёмные Эльфы, Гномы, Орки
+                </p>
+                <div class="roadmap-slide__btns">
+                  <a href="#" class="roadmap-btn">
+                    <img src="assets/img/roadmap-info.svg" class="svg" alt="">
+                    Доступные предметы
+                  </a>
+                  <a href="#" class="roadmap-btn">
+                    <img src="assets/img/roadmap-info.svg" class="svg" alt="">
+                    Release Enhance
+                  </a>
+                </div>
+              </p>
+            </div>
+            <div class="swiper-slide roadmap-slide">
+              <span class="roadmap-slide__number">00_3</span>
+              <p class="roadmap-slide__title"><span>( </span> Release <span> )</span></p>
+              <div class="roadmap-slide__date">
+                <div class="roadmap-slide__date-before">Q1 2019 — Q2 2019</div>
+                <div class="roadmap-slide__date-after">От 2 до 4 недель</div>
+              </div>
+              <p class="roadmap-slide__desc">
+                Патч Sylph  открывает дверь в прекрасный мир воздушных духов природы — элегантных и смертельно опасных существ. Класс обладает  стремительностью движений, ловкостью и способностью наносить молниеносные атаки по одной цели.
+              </p>
+              <p class="roadmap-slide__end">
+                <p class="roadmap-slide__subtitle">Доступные расы</p>
+                <p class="roadmap-slide__desc">
+                  Люди, Светлые Эльфы, Тёмные Эльфы, Гномы, Орки
+                </p>
+                <div class="roadmap-slide__btns">
+                  <a href="#" class="roadmap-btn">
+                    <img src="assets/img/roadmap-info.svg" class="svg" alt="">
+                    Доступные предметы
+                  </a>
+                  <a href="#" class="roadmap-btn">
+                    <img src="assets/img/roadmap-info.svg" class="svg" alt="">
+                    Release Enhance
+                  </a>
+                </div>
+              </p>
+            </div>
+            <div class="swiper-slide roadmap-slide">
+              <span class="roadmap-slide__number">00_4</span>
+              <p class="roadmap-slide__title"><span>( </span> Release <span> )</span></p>
+              <div class="roadmap-slide__date">
+                <div class="roadmap-slide__date-before">Q1 2019 — Q2 2019</div>
+                <div class="roadmap-slide__date-after">От 2 до 4 недель</div>
+              </div>
+              <p class="roadmap-slide__desc">
+                Патч Sylph  открывает дверь в прекрасный мир воздушных духов природы — элегантных и смертельно опасных существ. Класс обладает  стремительностью движений, ловкостью и способностью наносить молниеносные атаки по одной цели.
+              </p>
+              <p class="roadmap-slide__end">
+                <p class="roadmap-slide__subtitle">Доступные расы</p>
+                <p class="roadmap-slide__desc">
+                  Люди, Светлые Эльфы, Тёмные Эльфы, Гномы, Орки
+                </p>
+                <div class="roadmap-slide__btns">
+                  <a href="#" class="roadmap-btn">
+                    <img src="assets/img/roadmap-info.svg" class="svg" alt="">
+                    Доступные предметы
+                  </a>
+                  <a href="#" class="roadmap-btn">
+                    <img src="assets/img/roadmap-info.svg" class="svg" alt="">
+                    Release Enhance
+                  </a>
+                </div>
+              </p>
+            </div>
+            <div class="swiper-slide roadmap-slide">
+              <span class="roadmap-slide__number">00_5</span>
+              <p class="roadmap-slide__title"><span>( </span> Release <span> )</span></p>
+              <div class="roadmap-slide__date">
+                <div class="roadmap-slide__date-before">Q1 2019 — Q2 2019</div>
+                <div class="roadmap-slide__date-after">От 2 до 4 недель</div>
+              </div>
+              <p class="roadmap-slide__desc">
+                Патч Sylph  открывает дверь в прекрасный мир воздушных духов природы — элегантных и смертельно опасных существ. Класс обладает  стремительностью движений, ловкостью и способностью наносить молниеносные атаки по одной цели.
+              </p>
+              <p class="roadmap-slide__end">
+                <p class="roadmap-slide__subtitle">Доступные расы</p>
+                <p class="roadmap-slide__desc">
+                  Люди, Светлые Эльфы, Тёмные Эльфы, Гномы, Орки
+                </p>
+                <div class="roadmap-slide__btns">
+                  <a href="#" class="roadmap-btn">
+                    <img src="assets/img/roadmap-info.svg" class="svg" alt="">
+                    Доступные предметы
+                  </a>
+                  <a href="#" class="roadmap-btn">
+                    <img src="assets/img/roadmap-info.svg" class="svg" alt="">
+                    Release Enhance
+                  </a>
+                </div>
+              </p>
+            </div>
+            <div class="swiper-slide roadmap-slide">
+              <span class="roadmap-slide__number">00_6</span>
+              <p class="roadmap-slide__title"><span>( </span> Release <span> )</span></p>
+              <div class="roadmap-slide__date">
+                <div class="roadmap-slide__date-before">Q1 2019 — Q2 2019</div>
+                <div class="roadmap-slide__date-after">От 2 до 4 недель</div>
+              </div>
+              <p class="roadmap-slide__desc">
+                Патч Sylph  открывает дверь в прекрасный мир воздушных духов природы — элегантных и смертельно опасных существ. Класс обладает  стремительностью движений, ловкостью и способностью наносить молниеносные атаки по одной цели.
+              </p>
+              <p class="roadmap-slide__end">
+                <p class="roadmap-slide__subtitle">Доступные расы</p>
+                <p class="roadmap-slide__desc">
+                  Люди, Светлые Эльфы, Тёмные Эльфы, Гномы, Орки
+                </p>
+                <div class="roadmap-slide__btns">
+                  <a href="#" class="roadmap-btn">
+                    <img src="assets/img/roadmap-info.svg" class="svg" alt="">
+                    Доступные предметы
+                  </a>
+                  <a href="#" class="roadmap-btn">
+                    <img src="assets/img/roadmap-info.svg" class="svg" alt="">
+                    Release Enhance
+                  </a>
+                </div>
+              </p>
+            </div>
+            <div class="swiper-slide roadmap-slide">
+              <span class="roadmap-slide__number">00_1</span>
+              <p class="roadmap-slide__title"><span>( </span> Release <span> )</span></p>
+              <div class="roadmap-slide__date">
+                <div class="roadmap-slide__date-before">Q1 2019 — Q2 2019</div>
+                <div class="roadmap-slide__date-after">От 2 до 4 недель</div>
+              </div>
+              <p class="roadmap-slide__desc">
+                Патч Sylph  открывает дверь в прекрасный мир воздушных духов природы — элегантных и смертельно опасных существ. Класс обладает  стремительностью движений, ловкостью и способностью наносить молниеносные атаки по одной цели.
+              </p>
+              <p class="roadmap-slide__end">
+                <p class="roadmap-slide__subtitle">Доступные расы</p>
+                <p class="roadmap-slide__desc">
+                  Люди, Светлые Эльфы, Тёмные Эльфы, Гномы, Орки
+                </p>
+                <div class="roadmap-slide__btns">
+                  <a href="#" class="roadmap-btn">
+                    <img src="assets/img/roadmap-info.svg" class="svg" alt="">
+                    Доступные предметы
+                  </a>
+                  <a href="#" class="roadmap-btn">
+                    <img src="assets/img/roadmap-info.svg" class="svg" alt="">
+                    Release Enhance
+                  </a>
+                </div>
+              </p>
+            </div>
+            <div class="swiper-slide roadmap-slide">
+              <span class="roadmap-slide__number">00_2</span>
+              <p class="roadmap-slide__title"><span>( </span> Release <span> )</span></p>
+              <div class="roadmap-slide__date">
+                <div class="roadmap-slide__date-before">Q1 2019 — Q2 2019</div>
+                <div class="roadmap-slide__date-after">От 2 до 4 недель</div>
+              </div>
+              <p class="roadmap-slide__desc">
+                Патч Sylph  открывает дверь в прекрасный мир воздушных духов природы — элегантных и смертельно опасных существ. Класс обладает  стремительностью движений, ловкостью и способностью наносить молниеносные атаки по одной цели.
+              </p>
+              <p class="roadmap-slide__end">
+                <p class="roadmap-slide__subtitle">Доступные расы</p>
+                <p class="roadmap-slide__desc">
+                  Люди, Светлые Эльфы, Тёмные Эльфы, Гномы, Орки
+                </p>
+                <div class="roadmap-slide__btns">
+                  <a href="#" class="roadmap-btn">
+                    <img src="assets/img/roadmap-info.svg" class="svg" alt="">
+                    Доступные предметы
+                  </a>
+                  <a href="#" class="roadmap-btn">
+                    <img src="assets/img/roadmap-info.svg" class="svg" alt="">
+                    Release Enhance
+                  </a>
+                </div>
+              </p>
+            </div>
+            <div class="swiper-slide roadmap-slide">
+              <span class="roadmap-slide__number">00_3</span>
+              <p class="roadmap-slide__title"><span>( </span> Release <span> )</span></p>
+              <div class="roadmap-slide__date">
+                <div class="roadmap-slide__date-before">Q1 2019 — Q2 2019</div>
+                <div class="roadmap-slide__date-after">От 2 до 4 недель</div>
+              </div>
+              <p class="roadmap-slide__desc">
+                Патч Sylph  открывает дверь в прекрасный мир воздушных духов природы — элегантных и смертельно опасных существ. Класс обладает  стремительностью движений, ловкостью и способностью наносить молниеносные атаки по одной цели.
+              </p>
+              <p class="roadmap-slide__end">
+                <p class="roadmap-slide__subtitle">Доступные расы</p>
+                <p class="roadmap-slide__desc">
+                  Люди, Светлые Эльфы, Тёмные Эльфы, Гномы, Орки
+                </p>
+                <div class="roadmap-slide__btns">
+                  <a href="#" class="roadmap-btn">
+                    <img src="assets/img/roadmap-info.svg" class="svg" alt="">
+                    Доступные предметы
+                  </a>
+                  <a href="#" class="roadmap-btn">
+                    <img src="assets/img/roadmap-info.svg" class="svg" alt="">
+                    Release Enhance
+                  </a>
+                </div>
+              </p>
+            </div>
+            <div class="swiper-slide roadmap-slide">
+              <span class="roadmap-slide__number">00_4</span>
+              <p class="roadmap-slide__title"><span>( </span> Release <span> )</span></p>
+              <div class="roadmap-slide__date">
+                <div class="roadmap-slide__date-before">Q1 2019 — Q2 2019</div>
+                <div class="roadmap-slide__date-after">От 2 до 4 недель</div>
+              </div>
+              <p class="roadmap-slide__desc">
+                Патч Sylph  открывает дверь в прекрасный мир воздушных духов природы — элегантных и смертельно опасных существ. Класс обладает  стремительностью движений, ловкостью и способностью наносить молниеносные атаки по одной цели.
+              </p>
+              <p class="roadmap-slide__end">
+                <p class="roadmap-slide__subtitle">Доступные расы</p>
+                <p class="roadmap-slide__desc">
+                  Люди, Светлые Эльфы, Тёмные Эльфы, Гномы, Орки
+                </p>
+                <div class="roadmap-slide__btns">
+                  <a href="#" class="roadmap-btn">
+                    <img src="assets/img/roadmap-info.svg" class="svg" alt="">
+                    Доступные предметы
+                  </a>
+                  <a href="#" class="roadmap-btn">
+                    <img src="assets/img/roadmap-info.svg" class="svg" alt="">
+                    Release Enhance
+                  </a>
+                </div>
+              </p>
+            </div>
+            <div class="swiper-slide roadmap-slide">
+              <span class="roadmap-slide__number">00_5</span>
+              <p class="roadmap-slide__title"><span>( </span> Release <span> )</span></p>
+              <div class="roadmap-slide__date">
+                <div class="roadmap-slide__date-before">Q1 2019 — Q2 2019</div>
+                <div class="roadmap-slide__date-after">От 2 до 4 недель</div>
+              </div>
+              <p class="roadmap-slide__desc">
+                Патч Sylph  открывает дверь в прекрасный мир воздушных духов природы — элегантных и смертельно опасных существ. Класс обладает  стремительностью движений, ловкостью и способностью наносить молниеносные атаки по одной цели.
+              </p>
+              <p class="roadmap-slide__end">
+                <p class="roadmap-slide__subtitle">Доступные расы</p>
+                <p class="roadmap-slide__desc">
+                  Люди, Светлые Эльфы, Тёмные Эльфы, Гномы, Орки
+                </p>
+                <div class="roadmap-slide__btns">
+                  <a href="#" class="roadmap-btn">
+                    <img src="assets/img/roadmap-info.svg" class="svg" alt="">
+                    Доступные предметы
+                  </a>
+                  <a href="#" class="roadmap-btn">
+                    <img src="assets/img/roadmap-info.svg" class="svg" alt="">
+                    Release Enhance
+                  </a>
+                </div>
+              </p>
+            </div>
+            <div class="swiper-slide roadmap-slide">
+              <span class="roadmap-slide__number">00_6</span>
+              <p class="roadmap-slide__title"><span>( </span> Release <span> )</span></p>
+              <div class="roadmap-slide__date">
+                <div class="roadmap-slide__date-before">Q1 2019 — Q2 2019</div>
+                <div class="roadmap-slide__date-after">От 2 до 4 недель</div>
+              </div>
+              <p class="roadmap-slide__desc">
+                Патч Sylph  открывает дверь в прекрасный мир воздушных духов природы — элегантных и смертельно опасных существ. Класс обладает  стремительностью движений, ловкостью и способностью наносить молниеносные атаки по одной цели.
+              </p>
+              <p class="roadmap-slide__end">
+                <p class="roadmap-slide__subtitle">Доступные расы</p>
+                <p class="roadmap-slide__desc">
+                  Люди, Светлые Эльфы, Тёмные Эльфы, Гномы, Орки
+                </p>
+                <div class="roadmap-slide__btns">
+                  <a href="#" class="roadmap-btn">
+                    <img src="assets/img/roadmap-info.svg" class="svg" alt="">
+                    Доступные предметы
+                  </a>
+                  <a href="#" class="roadmap-btn">
+                    <img src="assets/img/roadmap-info.svg" class="svg" alt="">
+                    Release Enhance
+                  </a>
+                </div>
+              </p>
+            </div>
+            <div class="swiper-slide roadmap-slide">
+              <span class="roadmap-slide__number">00_1</span>
+              <p class="roadmap-slide__title"><span>( </span> Release <span> )</span></p>
+              <div class="roadmap-slide__date">
+                <div class="roadmap-slide__date-before">Q1 2019 — Q2 2019</div>
+                <div class="roadmap-slide__date-after">От 2 до 4 недель</div>
+              </div>
+              <p class="roadmap-slide__desc">
+                Патч Sylph  открывает дверь в прекрасный мир воздушных духов природы — элегантных и смертельно опасных существ. Класс обладает  стремительностью движений, ловкостью и способностью наносить молниеносные атаки по одной цели.
+              </p>
+              <p class="roadmap-slide__end">
+                <p class="roadmap-slide__subtitle">Доступные расы</p>
+                <p class="roadmap-slide__desc">
+                  Люди, Светлые Эльфы, Тёмные Эльфы, Гномы, Орки
+                </p>
+                <div class="roadmap-slide__btns">
+                  <a href="#" class="roadmap-btn">
+                    <img src="assets/img/roadmap-info.svg" class="svg" alt="">
+                    Доступные предметы
+                  </a>
+                  <a href="#" class="roadmap-btn">
+                    <img src="assets/img/roadmap-info.svg" class="svg" alt="">
+                    Release Enhance
+                  </a>
+                </div>
+              </p>
+            </div>
+            <div class="swiper-slide roadmap-slide">
+              <span class="roadmap-slide__number">00_2</span>
+              <p class="roadmap-slide__title"><span>( </span> Release <span> )</span></p>
+              <div class="roadmap-slide__date">
+                <div class="roadmap-slide__date-before">Q1 2019 — Q2 2019</div>
+                <div class="roadmap-slide__date-after">От 2 до 4 недель</div>
+              </div>
+              <p class="roadmap-slide__desc">
+                Патч Sylph  открывает дверь в прекрасный мир воздушных духов природы — элегантных и смертельно опасных существ. Класс обладает  стремительностью движений, ловкостью и способностью наносить молниеносные атаки по одной цели.
+              </p>
+              <p class="roadmap-slide__end">
+                <p class="roadmap-slide__subtitle">Доступные расы</p>
+                <p class="roadmap-slide__desc">
+                  Люди, Светлые Эльфы, Тёмные Эльфы, Гномы, Орки
+                </p>
+                <div class="roadmap-slide__btns">
+                  <a href="#" class="roadmap-btn">
+                    <img src="assets/img/roadmap-info.svg" class="svg" alt="">
+                    Доступные предметы
+                  </a>
+                  <a href="#" class="roadmap-btn">
+                    <img src="assets/img/roadmap-info.svg" class="svg" alt="">
+                    Release Enhance
+                  </a>
+                </div>
+              </p>
+            </div>
+            <div class="swiper-slide roadmap-slide">
+              <span class="roadmap-slide__number">00_3</span>
+              <p class="roadmap-slide__title"><span>( </span> Release <span> )</span></p>
+              <div class="roadmap-slide__date">
+                <div class="roadmap-slide__date-before">Q1 2019 — Q2 2019</div>
+                <div class="roadmap-slide__date-after">От 2 до 4 недель</div>
+              </div>
+              <p class="roadmap-slide__desc">
+                Патч Sylph  открывает дверь в прекрасный мир воздушных духов природы — элегантных и смертельно опасных существ. Класс обладает  стремительностью движений, ловкостью и способностью наносить молниеносные атаки по одной цели.
+              </p>
+              <p class="roadmap-slide__end">
+                <p class="roadmap-slide__subtitle">Доступные расы</p>
+                <p class="roadmap-slide__desc">
+                  Люди, Светлые Эльфы, Тёмные Эльфы, Гномы, Орки
+                </p>
+                <div class="roadmap-slide__btns">
+                  <a href="#" class="roadmap-btn">
+                    <img src="assets/img/roadmap-info.svg" class="svg" alt="">
+                    Доступные предметы
+                  </a>
+                  <a href="#" class="roadmap-btn">
+                    <img src="assets/img/roadmap-info.svg" class="svg" alt="">
+                    Release Enhance
+                  </a>
+                </div>
+              </p>
+            </div>
+            <div class="swiper-slide roadmap-slide">
+              <span class="roadmap-slide__number">00_4</span>
+              <p class="roadmap-slide__title"><span>( </span> Release <span> )</span></p>
+              <div class="roadmap-slide__date">
+                <div class="roadmap-slide__date-before">Q1 2019 — Q2 2019</div>
+                <div class="roadmap-slide__date-after">От 2 до 4 недель</div>
+              </div>
+              <p class="roadmap-slide__desc">
+                Патч Sylph  открывает дверь в прекрасный мир воздушных духов природы — элегантных и смертельно опасных существ. Класс обладает  стремительностью движений, ловкостью и способностью наносить молниеносные атаки по одной цели.
+              </p>
+              <p class="roadmap-slide__end">
+                <p class="roadmap-slide__subtitle">Доступные расы</p>
+                <p class="roadmap-slide__desc">
+                  Люди, Светлые Эльфы, Тёмные Эльфы, Гномы, Орки
+                </p>
+                <div class="roadmap-slide__btns">
+                  <a href="#" class="roadmap-btn">
+                    <img src="assets/img/roadmap-info.svg" class="svg" alt="">
+                    Доступные предметы
+                  </a>
+                  <a href="#" class="roadmap-btn">
+                    <img src="assets/img/roadmap-info.svg" class="svg" alt="">
+                    Release Enhance
+                  </a>
+                </div>
+              </p>
+            </div>
+            <div class="swiper-slide roadmap-slide">
+              <span class="roadmap-slide__number">00_5</span>
+              <p class="roadmap-slide__title"><span>( </span> Release <span> )</span></p>
+              <div class="roadmap-slide__date">
+                <div class="roadmap-slide__date-before">Q1 2019 — Q2 2019</div>
+                <div class="roadmap-slide__date-after">От 2 до 4 недель</div>
+              </div>
+              <p class="roadmap-slide__desc">
+                Патч Sylph  открывает дверь в прекрасный мир воздушных духов природы — элегантных и смертельно опасных существ. Класс обладает  стремительностью движений, ловкостью и способностью наносить молниеносные атаки по одной цели.
+              </p>
+              <p class="roadmap-slide__end">
+                <p class="roadmap-slide__subtitle">Доступные расы</p>
+                <p class="roadmap-slide__desc">
+                  Люди, Светлые Эльфы, Тёмные Эльфы, Гномы, Орки
+                </p>
+                <div class="roadmap-slide__btns">
+                  <a href="#" class="roadmap-btn">
+                    <img src="assets/img/roadmap-info.svg" class="svg" alt="">
+                    Доступные предметы
+                  </a>
+                  <a href="#" class="roadmap-btn">
+                    <img src="assets/img/roadmap-info.svg" class="svg" alt="">
+                    Release Enhance
+                  </a>
+                </div>
+              </p>
+            </div>
+            <div class="swiper-slide roadmap-slide">
+              <span class="roadmap-slide__number">00_6</span>
+              <p class="roadmap-slide__title"><span>( </span> Release <span> )</span></p>
+              <div class="roadmap-slide__date">
+                <div class="roadmap-slide__date-before">Q1 2019 — Q2 2019</div>
+                <div class="roadmap-slide__date-after">От 2 до 4 недель</div>
+              </div>
+              <p class="roadmap-slide__desc">
+                Патч Sylph  открывает дверь в прекрасный мир воздушных духов природы — элегантных и смертельно опасных существ. Класс обладает  стремительностью движений, ловкостью и способностью наносить молниеносные атаки по одной цели.
+              </p>
+              <p class="roadmap-slide__end">
+                <p class="roadmap-slide__subtitle">Доступные расы</p>
+                <p class="roadmap-slide__desc">
+                  Люди, Светлые Эльфы, Тёмные Эльфы, Гномы, Орки
+                </p>
+                <div class="roadmap-slide__btns">
+                  <a href="#" class="roadmap-btn">
+                    <img src="assets/img/roadmap-info.svg" class="svg" alt="">
+                    Доступные предметы
+                  </a>
+                  <a href="#" class="roadmap-btn">
+                    <img src="assets/img/roadmap-info.svg" class="svg" alt="">
+                    Release Enhance
+                  </a>
+                </div>
+              </p>
+            </div>
+            <div class="swiper-slide roadmap-slide">
+              <span class="roadmap-slide__number">00_1</span>
+              <p class="roadmap-slide__title"><span>( </span> Release <span> )</span></p>
+              <div class="roadmap-slide__date">
+                <div class="roadmap-slide__date-before">Q1 2019 — Q2 2019</div>
+                <div class="roadmap-slide__date-after">От 2 до 4 недель</div>
+              </div>
+              <p class="roadmap-slide__desc">
+                Патч Sylph  открывает дверь в прекрасный мир воздушных духов природы — элегантных и смертельно опасных существ. Класс обладает  стремительностью движений, ловкостью и способностью наносить молниеносные атаки по одной цели.
+              </p>
+              <p class="roadmap-slide__end">
+                <p class="roadmap-slide__subtitle">Доступные расы</p>
+                <p class="roadmap-slide__desc">
+                  Люди, Светлые Эльфы, Тёмные Эльфы, Гномы, Орки
+                </p>
+                <div class="roadmap-slide__btns">
+                  <a href="#" class="roadmap-btn">
+                    <img src="assets/img/roadmap-info.svg" class="svg" alt="">
+                    Доступные предметы
+                  </a>
+                  <a href="#" class="roadmap-btn">
+                    <img src="assets/img/roadmap-info.svg" class="svg" alt="">
+                    Release Enhance
+                  </a>
+                </div>
+              </p>
+            </div>
+            <div class="swiper-slide roadmap-slide">
+              <span class="roadmap-slide__number">00_2</span>
+              <p class="roadmap-slide__title"><span>( </span> Release <span> )</span></p>
+              <div class="roadmap-slide__date">
+                <div class="roadmap-slide__date-before">Q1 2019 — Q2 2019</div>
+                <div class="roadmap-slide__date-after">От 2 до 4 недель</div>
+              </div>
+              <p class="roadmap-slide__desc">
+                Патч Sylph  открывает дверь в прекрасный мир воздушных духов природы — элегантных и смертельно опасных существ. Класс обладает  стремительностью движений, ловкостью и способностью наносить молниеносные атаки по одной цели.
+              </p>
+              <p class="roadmap-slide__end">
+                <p class="roadmap-slide__subtitle">Доступные расы</p>
+                <p class="roadmap-slide__desc">
+                  Люди, Светлые Эльфы, Тёмные Эльфы, Гномы, Орки
+                </p>
+                <div class="roadmap-slide__btns">
+                  <a href="#" class="roadmap-btn">
+                    <img src="assets/img/roadmap-info.svg" class="svg" alt="">
+                    Доступные предметы
+                  </a>
+                  <a href="#" class="roadmap-btn">
+                    <img src="assets/img/roadmap-info.svg" class="svg" alt="">
+                    Release Enhance
+                  </a>
+                </div>
+              </p>
+            </div>
+            <div class="swiper-slide roadmap-slide">
+              <span class="roadmap-slide__number">00_3</span>
+              <p class="roadmap-slide__title"><span>( </span> Release <span> )</span></p>
+              <div class="roadmap-slide__date">
+                <div class="roadmap-slide__date-before">Q1 2019 — Q2 2019</div>
+                <div class="roadmap-slide__date-after">От 2 до 4 недель</div>
+              </div>
+              <p class="roadmap-slide__desc">
+                Патч Sylph  открывает дверь в прекрасный мир воздушных духов природы — элегантных и смертельно опасных существ. Класс обладает  стремительностью движений, ловкостью и способностью наносить молниеносные атаки по одной цели.
+              </p>
+              <p class="roadmap-slide__end">
+                <p class="roadmap-slide__subtitle">Доступные расы</p>
+                <p class="roadmap-slide__desc">
+                  Люди, Светлые Эльфы, Тёмные Эльфы, Гномы, Орки
+                </p>
+                <div class="roadmap-slide__btns">
+                  <a href="#" class="roadmap-btn">
+                    <img src="assets/img/roadmap-info.svg" class="svg" alt="">
+                    Доступные предметы
+                  </a>
+                  <a href="#" class="roadmap-btn">
+                    <img src="assets/img/roadmap-info.svg" class="svg" alt="">
+                    Release Enhance
+                  </a>
+                </div>
+              </p>
+            </div>
+            <div class="swiper-slide roadmap-slide">
+              <span class="roadmap-slide__number">00_4</span>
+              <p class="roadmap-slide__title"><span>( </span> Release <span> )</span></p>
+              <div class="roadmap-slide__date">
+                <div class="roadmap-slide__date-before">Q1 2019 — Q2 2019</div>
+                <div class="roadmap-slide__date-after">От 2 до 4 недель</div>
+              </div>
+              <p class="roadmap-slide__desc">
+                Патч Sylph  открывает дверь в прекрасный мир воздушных духов природы — элегантных и смертельно опасных существ. Класс обладает  стремительностью движений, ловкостью и способностью наносить молниеносные атаки по одной цели.
+              </p>
+              <p class="roadmap-slide__end">
+                <p class="roadmap-slide__subtitle">Доступные расы</p>
+                <p class="roadmap-slide__desc">
+                  Люди, Светлые Эльфы, Тёмные Эльфы, Гномы, Орки
+                </p>
+                <div class="roadmap-slide__btns">
+                  <a href="#" class="roadmap-btn">
+                    <img src="assets/img/roadmap-info.svg" class="svg" alt="">
+                    Доступные предметы
+                  </a>
+                  <a href="#" class="roadmap-btn">
+                    <img src="assets/img/roadmap-info.svg" class="svg" alt="">
+                    Release Enhance
+                  </a>
+                </div>
+              </p>
+            </div>
+            <div class="swiper-slide roadmap-slide">
+              <span class="roadmap-slide__number">00_5</span>
+              <p class="roadmap-slide__title"><span>( </span> Release <span> )</span></p>
+              <div class="roadmap-slide__date">
+                <div class="roadmap-slide__date-before">Q1 2019 — Q2 2019</div>
+                <div class="roadmap-slide__date-after">От 2 до 4 недель</div>
+              </div>
+              <p class="roadmap-slide__desc">
+                Патч Sylph  открывает дверь в прекрасный мир воздушных духов природы — элегантных и смертельно опасных существ. Класс обладает  стремительностью движений, ловкостью и способностью наносить молниеносные атаки по одной цели.
+              </p>
+              <p class="roadmap-slide__end">
+                <p class="roadmap-slide__subtitle">Доступные расы</p>
+                <p class="roadmap-slide__desc">
+                  Люди, Светлые Эльфы, Тёмные Эльфы, Гномы, Орки
+                </p>
+                <div class="roadmap-slide__btns">
+                  <a href="#" class="roadmap-btn">
+                    <img src="assets/img/roadmap-info.svg" class="svg" alt="">
+                    Доступные предметы
+                  </a>
+                  <a href="#" class="roadmap-btn">
+                    <img src="assets/img/roadmap-info.svg" class="svg" alt="">
+                    Release Enhance
+                  </a>
+                </div>
+              </p>
+            </div>
+            <div class="swiper-slide roadmap-slide">
+              <span class="roadmap-slide__number">00_6</span>
+              <p class="roadmap-slide__title"><span>( </span> Release <span> )</span></p>
+              <div class="roadmap-slide__date">
+                <div class="roadmap-slide__date-before">Q1 2019 — Q2 2019</div>
+                <div class="roadmap-slide__date-after">От 2 до 4 недель</div>
+              </div>
+              <p class="roadmap-slide__desc">
+                Патч Sylph  открывает дверь в прекрасный мир воздушных духов природы — элегантных и смертельно опасных существ. Класс обладает  стремительностью движений, ловкостью и способностью наносить молниеносные атаки по одной цели.
+              </p>
+              <p class="roadmap-slide__end">
+                <p class="roadmap-slide__subtitle">Доступные расы</p>
+                <p class="roadmap-slide__desc">
+                  Люди, Светлые Эльфы, Тёмные Эльфы, Гномы, Орки
+                </p>
+                <div class="roadmap-slide__btns">
+                  <a href="#" class="roadmap-btn">
+                    <img src="assets/img/roadmap-info.svg" class="svg" alt="">
+                    Доступные предметы
+                  </a>
+                  <a href="#" class="roadmap-btn">
+                    <img src="assets/img/roadmap-info.svg" class="svg" alt="">
+                    Release Enhance
+                  </a>
+                </div>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="quote">
+      <div class="quote__wrap">
+        <p class="quote__text">
+          Не переживай — <strong>твой буст</strong> остаётся ценным, <span>
+          независимо от новых патчей. Благодаря системе Полировок, ты можешь
+          </span> совершенствовать предметы и поднимать их ранг. <span>Редкие предметы</span> сохраняют свою уникальность, <span>а адена остаётся</span> высоко востребованной.
+        </p>
+      </div>
+    </section>
+
+    <section class="version">
+      <p class="roadmap__title">Идеальная версия игры для..</p>
+      <div class="version__wrap">
+        <div class="version-card">
+          <div class="version-card__top"></div>
+          <div class="version-card__bot"></div>
+          <div class="version-card__inner">
+            <div class="version-card__front">
+              <img src="assets/img/version-card1.webp" alt="">
+            </div>
+            <div class="version-card__back">
+              <img src="assets/img/version-back.webp" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="version-card">
+          <div class="version-card__top"></div>
+          <div class="version-card__bot"></div>
+          <div class="version-card__inner">
+            <div class="version-card__front">
+              <img src="assets/img/version-card2.webp" alt="">
+            </div>
+            <div class="version-card__back">
+              <img src="assets/img/version-back.webp" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="version-card">
+          <div class="version-card__top"></div>
+          <div class="version-card__bot"></div>
+          <div class="version-card__inner">
+            <div class="version-card__front">
+              <img src="assets/img/version-card3.webp" alt="">
+            </div>
+            <div class="version-card__back">
+              <img src="assets/img/version-back.webp" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="version-card">
+          <div class="version-card__top"></div>
+          <div class="version-card__bot"></div>
+          <div class="version-card__inner">
+            <div class="version-card__front">
+              <img src="assets/img/version-card4.webp" alt="">
+            </div>
+            <div class="version-card__back">
+              <img src="assets/img/version-back.webp" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="version-card">
+          <div class="version-card__top"></div>
+          <div class="version-card__bot"></div>
+          <div class="version-card__inner">
+            <div class="version-card__front">
+              <img src="assets/img/version-card5.webp" alt="">
+            </div>
+            <div class="version-card__back">
+              <img src="assets/img/version-back.webp" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contacts contacts_space">
+      <picture class="contacts-bg">
+          <source loading="lazy" media="(max-width: 768px)" srcset="assets/img/vanila-contacts2.webp">
+          <img loading="lazy" src="assets/img/vanila-contacts.webp" alt="baza">
+      </picture>
+      <div class="container">
+          <p class="h2">стань частью<br> нашего сообщества</p>
+          <div class="socials">
+              <a href="#" class="socials-item">
+                  <img src="assets/img/ds.svg">
+                  <div class="socials-item-inner">
+                      <p class="h4">discord</p>
+                      <span class="body-14m">3 000 участников</span>
+                  </div>
+              </a>
+              <a href="#" class="socials-item">
+                  <img src="assets/img/tg.svg">
+                  <div class="socials-item-inner">
+                      <p class="h4">telegram</p>
+                      <span class="body-14m">3 000 участников</span>
+                  </div>
+              </a>
+              <a href="#" class="socials-item">
+                  <img src="assets/img/bot.svg">
+                  <div class="socials-item-inner">
+                      <p class="h4">telegram-бот</p>
+                      <span class="body-14m">Ваш верный помощник</span>
+                  </div>
+              </a>
+              <a href="#" class="socials-item">
+                  <img src="assets/img/fb.svg">
+                  <div class="socials-item-inner">
+                      <p class="h4">facebook</p>
+                      <span class="body-14m">3 000 участников</span>
+                  </div>
+              </a>
+          </div>
+          <ul class="contacts-menu">
+              <li class="contacts-menu-item body-14mu"><a href="#">О сервере</a></li>
+              <li class="contacts-menu-item body-14mu"><a href="#">Новости</a></li>
+              <li class="contacts-menu-item body-14mu"><a href="#">Скачать файлы</a></li>
+              <li class="contacts-menu-item body-14mu"><a href="#">Помощь</a></li>
+              <li class="contacts-menu-item body-14mu"><a href="#">Личный кабинет</a></li>
+              <li class="contacts-menu-item body-14mu"><a href="#">Пожертвования</a></li>
+          </ul>
+      </div>
+    </section>
+  </main>
+
+  @@include('global/footer.html')
+
+</body>
+</html>
