@@ -478,7 +478,7 @@
     font-weight: 500;
     font-size: 112px;
     line-height: 100%;
-    margin-bottom: 214px;
+    margin-bottom: 120px;
     text-transform: uppercase;
     letter-spacing: 4px;
     position: relative;
@@ -1017,7 +1017,7 @@
 }
 
 .quote {
-  padding-top: 322px;
+  padding-top: 160px;
   color: #FDFDED;
   padding-left: 90px;
   padding-right: 90px;
@@ -1032,15 +1032,7 @@
     padding: 80px 0;
 
     &::before {
-      content: "";
-      width: 1688px;
-      height: 2px;
-      background: linear-gradient(-90deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 50%, rgba(255, 255, 255, 0) 100%);
-      position: absolute;
-      left: 50%;
-      top: 0;
-      transform: translateX(-50%);
-      opacity: .3;
+     display: none;
     }
 
     &::after {
@@ -1138,9 +1130,9 @@
 
 .version {
   position: relative;
-  padding-top: 150px;
+  padding-top: 0;
   padding-bottom: 270px;
-  margin-top: 146px;
+  margin-top: 156px;
   padding-left: 100px;
   overflow: hidden;
   padding-right: 100px;
@@ -1734,7 +1726,8 @@
 
 .contacts_vanila {
   overflow: visible;
-  padding-top: 320px;
+  padding-top: 240px;
+  margin-top: 0;
 
   .contacts-bg {
     max-width: 1920px;
@@ -1891,7 +1884,7 @@
     cursor: pointer;
 
     p {
-      font-weight: 700;
+      font-weight: 400;
       font-size: 24px;
       line-height: 100%;
       letter-spacing: 1px;
