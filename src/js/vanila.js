@@ -1,67 +1,52 @@
 $(document).ready( function() {
-  let galleryThumbs = new Swiper('.roadmap__images', {
-    spaceBetween: 12,
-    slidesPerView: 1,
-    loop: true,
-    watchSlidesVisibility: true,
-    watchSlidesProgress: true,
-    centeredSlides: true,
-    pagination: {
-      el: ".roadmap .swiper-pagination",
-      // clickable: true,
-      dynamicBullets: true, 
-      dynamicMainBullets: 1,
-    },
-    autoplay: {
-      enabled: false,
-    },
-    breakpoints: {
-      991: {
-        slidesPerView: 'auto',
-        spaceBetween: 10,
-        allowTouchMove: false,
-        direction: 'vertical',
-        freeMode: true,
-        speed: 3000,
-        autoplay: {
-          enabled: true,
-          delay: 0,
-          disableOnInteraction: false,
-        },
-      },
-    }
-  });
+
   let galleryTop = new Swiper('.roadmap__content', {
     spaceBetween: 0,
     loop: true,
     slidesPerView: 1,
     watchSlidesVisibility: true,
     watchSlidesProgress: true,
+    allowTouchMove: false,
     effect: 'fade',
     fadeEffect: {
       crossFade: true
     },
-    thumbs: {
-      swiper: galleryThumbs,
-    },
-    
-    autoplay: {
-      enabled: false,
+    pagination: {
+      el: ".desktop-pagination .swiper-pagination",
+      clickable: true,
+      dynamicBullets: true, 
+      dynamicMainBullets: 1,
     },
     breakpoints: {
       991: {
-        allowTouchMove: false,
         autoplay: true,
-        speed: 400,
-        autoplay: {
-          enabled: true,
-          delay: 2750,
-          disableOnInteraction: false,
-        },
       },
     }
   });
-
+  let galleryThumbs = new Swiper('.roadmap__images', {
+    spaceBetween: 12,
+    slidesPerView: 1,
+    loop: true,
+    centeredSlides: true,
+    breakpoints: {
+      991: {
+        slidesPerView: 1,
+        spaceBetween: 10,
+        direction: 'vertical',
+      },
+    },
+    pagination: {
+      el: ".roadmap__images .swiper-pagination",
+      clickable: true,
+      dynamicBullets: true, 
+      dynamicMainBullets: 1,
+    },
+    // thumbs: {
+    //   swiper: galleryTop,
+    // },
+  });
+  galleryTop.controller.control = galleryThumbs;
+  galleryThumbs.controller.control = galleryTop;
 
   $('.version-card').on('click', function(){
     $(this).toggleClass('active').siblings().removeClass('active');
