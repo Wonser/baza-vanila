@@ -28,6 +28,9 @@ $(document).ready( function() {
     slidesPerView: 1,
     loop: true,
     centeredSlides: true,
+    mousewheel: {
+      releaseOnEdges: true,
+    },
     breakpoints: {
       991: {
         slidesPerView: 1,
@@ -134,5 +137,47 @@ $(document).ready( function() {
 
   $('.faq-vanila__timecode').on('click', function(){
     audio.currentTime = $(this).data('time');
+  });
+
+  $(".vanila-video .vanila-btn").on("click", function(e) {
+    e.preventDefault();
+    $("#videoModal2").arcticmodal();
+  });
+
+  // $('.version-card').on('mousemove', function(e) {
+  //   const card = $(this);
+  //   const cardWidth = card.width();
+  //   const cardHeight = card.height();
+  //   const cardOffset = card.offset();
+
+  //   // Calculate mouse position relative to the card's center
+  //   const mouseX = e.pageX - cardOffset.left - (cardWidth / 2);
+  //   const mouseY = e.pageY - cardOffset.top - (cardHeight / 2);
+
+  //   // Calculate tilt angles based on mouse position
+  //   const rotateX = (mouseY / cardHeight) * 30; // Adjust multiplier for desired tilt intensity
+  //   const rotateY = -(mouseX / cardWidth) * 30; // Adjust multiplier for desired tilt intensity
+
+  //   // Apply the transform
+  //   card.css('transform', `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`);
+  // });
+
+  // $('.version-card').on('mouseleave', function() {
+  //   // Reset transform when mouse leaves the card
+  //   $(this).css('transform', 'rotateX(0deg) rotateY(0deg)');
+  // });
+
+  $(".version-card").tilt({
+    maxTilt: 25,
+    perspective: 1400,
+    easing: "cubic-bezier(.03,.98,.52,.99)",
+    speed: 1300,
+    glare: false,
+    scale: 1.04
+  });
+
+  $('.roadmap-btn').on('click', function(){
+    modal = $(this).data('modal');
+    $(modal).arcticmodal();
   });
 }); 
