@@ -180,4 +180,14 @@ $(document).ready( function() {
     modal = $(this).data('modal');
     $(modal).arcticmodal();
   });
+
+   // Проверка, сохранено ли согласие
+  if (!localStorage.getItem("cookieConsent")) {
+    $("#cookie-banner").css('display', 'block');
+  }
+
+  $("#cookie-accept").on("click", function () {
+    localStorage.setItem("cookieConsent", "true");
+    $("#cookie-banner").css('display', 'none');
+  });
 }); 

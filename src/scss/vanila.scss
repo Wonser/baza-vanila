@@ -371,6 +371,13 @@
   transition: all 0.12s ease-out;
   overflow: hidden;
   position: relative;
+  border: none;
+  cursor: pointer;
+
+  &_dark {
+    background: #161616;
+    color: #FDFDED;
+  }
 
   span {
     position: relative;
@@ -2259,6 +2266,90 @@
     &__title {
       font-size: 48px;
       margin-bottom: 24px;
+    }
+  }
+}
+.cookie-banner {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 48px);
+  background: #FFFFFF;
+  box-shadow: 0px 10px 22px 0px #00000085;
+  z-index: 20;
+  max-width: 1808px;
+  padding: 32px 42px;
+  color: #161616;
+  display: none;
+
+  &__wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+
+    &-left {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 18px;
+    }
+  }
+
+  &__title {
+    font-family: "Druk Cyr";
+    font-weight: 700;
+    font-size: 52px;
+    line-height: 52px;
+    text-transform: uppercase;
+  }
+
+  &__desc {
+    font-size: 22px;
+    font-weight: 300;
+    line-height: 28px;
+
+    a {
+      border-bottom: 1px solid;
+
+      &:hover {
+        border-bottom-color: transparent;
+      }
+    }
+  }
+
+  .vanila-btn {
+    width: 100%;
+    max-width: 368px;
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 32px 24px;
+    bottom: 10px;
+
+    &__wrap {
+      flex-direction: column;
+      align-items: flex-start;
+      
+
+      &-left {
+        gap: 12px;
+      }
+    }
+
+    .vanila-btn {
+      max-width: 100%;
+    }
+
+    &__title {
+      font-size: 32px;
+      line-height: 100%;
+    }
+
+    &__desc {
+      font-size: 14px;
+      line-height: 20px;
     }
   }
 }
