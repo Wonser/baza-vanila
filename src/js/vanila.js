@@ -27,7 +27,7 @@ $(document).ready( function() {
     spaceBetween: 12,
     slidesPerView: 1,
     loop: true,
-    centeredSlides: true,
+    // centeredSlides: true,
     mousewheel: {
       releaseOnEdges: true,
     },

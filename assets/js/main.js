@@ -452,7 +452,7 @@ jQuery(document).ready(function($) {
   });
 
   $(".stories-item").on('click', function () {
-    storiesSwiper.slideTo($(this).index());
+    storiesSwiper.slideTo($(this).index() - 1);
     $('.stories-swiper-slide video').trigger('pause');
     $("video").one("pause", function() {
       this.currentTime = 0;
