@@ -190,4 +190,25 @@ $(document).ready( function() {
     localStorage.setItem("cookieConsent", "true");
     $("#cookie-banner").css('display', 'none');
   });
+
+  let clickCount = 0;
+
+  $(".speed").on("click", function () {
+    clickCount += 1;
+    switch (clickCount) {
+      case 1:
+        audio.playbackRate = 1.5;
+        $(".speed").text('1.5X');
+        break;
+      case 2:
+        audio.playbackRate = 2.0;
+        $(".speed").text('2X');
+        break;
+      case 3:
+        $(".speed").text('1X');
+        audio.playbackRate = 1.0;
+        clickCount = 0;
+        break;
+    }
+  });
 }); 

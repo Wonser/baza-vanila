@@ -2095,6 +2095,16 @@
     }
   }
 
+  .speed {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
   #volume-bar {
     width: 92px;
     appearance: none;
@@ -2194,6 +2204,11 @@
     .volume-icon {
       width: 28px!important;
       height: 28px!important;
+    }
+
+    .speed {
+      font-size: 18px;
+      right: 0;
     }
 
     #volume-bar {
