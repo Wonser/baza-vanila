@@ -361,7 +361,7 @@ jQuery(document).ready(function($) {
 
   $('#promoModal .main-btn').on('click', function () {
     $('#promoModal').arcticmodal('close');
-    $('#promoSucModal').arcticmodal();
+    // $('#promoSucModal').arcticmodal();
   });
 
   $(".item-btn").on('click', function () {
